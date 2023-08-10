@@ -7,6 +7,7 @@ import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
 import DashboardLayout from '../layouts/DashboardLayout'
 import AddRoom from '../pages/Dashboard/AddRoom'
+import { getRoom } from '../api/rooms'
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,8 @@ export const router = createBrowserRouter([
                         <RoomDetails />
                     </PrivateRoute>
                 ),
+                loader: ({ params }) => getRoom(params.id),
+
             },
         ],
     },
